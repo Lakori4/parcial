@@ -1,6 +1,6 @@
 "use client"
 import CocktailThumb from "@/components/CocktailThumb";
-import { getAllCocktails, getRandomCocktailID, searchCocktailsByName } from "@/lib/api";
+import { getAllCocktails, getCocktailByID, getRandomCocktailID, searchCocktailsByName } from "@/lib/api";
 import { CocktailThumbnail } from "@/lib/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -14,6 +14,8 @@ const Home = () =>  {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
   const [search, setSearch]= useState<boolean>(false)
+
+  const id = getRandomCocktailID()
 
 
   useEffect(()=>{
@@ -52,13 +54,14 @@ const Home = () =>  {
     };
   }, [search]);
 
+
   return (
     <div className="main">
 
       <h1 className="title">Explorador de cócteles</h1>
       
       <div className="searchContainer">
-       <Link href={`/cocktail/`}><button className="searchButton">Dime algo bonito</button></Link>
+       <Link href={`/cocktail/${id}`}><button className="searchButton">Dime algo bonito</button></Link>
 
         <input 
           type="text" 
