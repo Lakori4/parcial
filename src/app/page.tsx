@@ -61,7 +61,7 @@ const Home = () =>  {
       <h1 className="title">Explorador de cócteles</h1>
       
       <div className="searchContainer">
-       <Link href={`/cocktail/${id}`}><button className="searchButton">Dime algo bonito</button></Link>
+       <Link href={`./`}><button className="searchButton">Dime algo bonito</button></Link>
 
         <input 
           type="text" 
